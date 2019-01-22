@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Page1 from './company/page1'
+import ItemList from './company/page2-array'
 let propsData = {
     firstName:'levin',
     lastName:'jiang'
@@ -21,26 +23,79 @@ class Toggle extends React.Component{
         return (
             <div>
                 <LoggingButton data={propsData}/>
+                <LoginControl />
                 <button onClick={this.handleClick}>
                     {this.state.isToggle ? 'ON' : 'OFF'}
                 </button>
+                <Page1 />
+                <ul>{ItemList}</ul>
             </div>
             
         )
     }
 }
 
-class UserGreeting extends React.Component{
-    render(){
-        return (
-            <h1>Welcome back!</h1>
-        )
-    }
+function UserGreeting(){
+    return (
+        <h1>Welcome back!</h1>
+    )
+    
 }
-class GutstGreeting extends React.Component{
+function GuestGreeting(){
+    return (
+        <h1>Please sign up.</h1>
+    )
+}
+function LoginButton(props){
+    return (
+        <button onClick={props.onClick}>
+            Login
+        </button>
+    )
+}
+function LogoutButton(props){
+    return (
+        <button onClick={props.onClick}>
+            Logout
+        </button>
+    )
+}
+function Greeting(props) {
+    const isLoggedIn = props.isLoggedIn;
+    if (isLoggedIn) {
+      return <UserGreeting />;
+    }
+    return <GuestGreeting />;
+}
+class LoginControl extends React.Component{
+    constructor(props){
+        super(props);
+        this.handleLoginClick = this.handleLoginClick.bind(this);
+        this.state = {isLoginIn:false}
+    }
+    handleLoginClick(){
+        this.setState({ isLoginIn:!this.state.isLoginIn})
+    }
     render(){
+        const isLoginIn = this.state.isLoginIn;
+        let button = null;
+        if(isLoginIn){
+            button = <LoginButton onClick={this.handleLoginClick} />
+        }else{
+            button = <LogoutButton onClick={this.handleLoginClick} />
+        }
         return (
-            <h1>Please sign up.</h1>
+            <div>
+                {/* <Greeting isLoginIn={isLoginIn} />
+                //{button} */}
+                {isLoginIn ? (
+                    <LoginButton onClick={this.handleLoginClick} />
+                ) :
+                (
+                    <LogoutButton onClick={this.handleLoginClick} />
+                )
+                }
+            </div>
         )
     }
 }
