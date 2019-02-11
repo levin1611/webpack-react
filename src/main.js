@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Page1 from './company/page1'
-import ItemList from './company/page2-array'
+import ItemList from './company/page2-array';
+import Blog from './company/blog'
 let propsData = {
     firstName:'levin',
     lastName:'jiang'
 }
+const posts = [
+    {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
+    {id: 2, title: 'Installation', content: 'You can install React from npm.'}
+];
 class Toggle extends React.Component{
     constructor(props){
         super(props);
@@ -29,6 +34,7 @@ class Toggle extends React.Component{
                 </button>
                 <Page1 />
                 <ul>{ItemList}</ul>
+                <Blog posts={posts}/>
             </div>
             
         )
