@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './header';
-import Clock from './Clock'
+import Clock from './Clock';
+import ItemList from '../../src/company/page2-array.js';
+import NameForm from './form';
 function formatName(user){
     return user.firstName + '-' + user.lastName;
 }
@@ -54,6 +56,12 @@ const user = {
     firstName:'levin',
     lastName:'jiang'
 }
+const optionItem =[
+    {id:1,name:'aaa'},
+    {id:2,name:'bbb'},
+    {id:3,name:'ccc'},
+    {id:4,name:'ddd'}
+]
 const comment = {
     date: new Date(),
     text: 'I hope you enjoy learning React!',
@@ -84,21 +92,41 @@ class Index extends React.Component{
         return (
             <div className="coment">
                 <Header></Header>
-                <Comment 
-                    date={comment.date}
-                    text={comment.text}
-                    author={comment.author}
-                />
-                <Clock />
-                <Clock />
-                <Clock />
-                <h3>{this.state.date.getTime()}</h3>
-                <p>{this.props.name} it`s time go bed</p>
-                <section>{element}</section>
-                <section>{greeting}</section>
-                {userUrl}
-                <Welcome name="姜玉庄"></Welcome>
-                <Welcome name="姜莱"/>
+                <div className="container projects">
+                    <div className="projects-header page-header">
+                        <h2>Bootstrap相关优质项目推荐</h2>
+                        <p>这些项目或者是对Bootstrap进行了有益的补充，或者是基于Bootstrap开发的</p>
+                    </div>
+                    <Comment 
+                        date={comment.date}
+                        text={comment.text}
+                        author={comment.author}
+                    />
+                    <Clock />
+                    <Clock />
+                    <Clock />
+                    <h3>{this.state.date.getTime()}</h3>
+                    <p>{this.props.name} it`s time go bed</p>
+                    <section>{element}</section>
+                    <section>{greeting}</section>
+                    {userUrl}
+                    <div className="row">
+                        <div className="col-md-3">
+                            <ul>{ItemList}</ul>
+                        </div>
+                        <div className="col-md-3">
+                            <Welcome name="姜玉庄"></Welcome>
+                        </div>
+                        <div className="col-md-3">
+                            <Welcome name="姜莱"/>
+                        </div>
+                        <div className="col-md-3">
+                            <NameForm option={optionItem}/>
+                        </div>
+                    </div>
+                   
+                </div>
+                
             </div>
         )
     }

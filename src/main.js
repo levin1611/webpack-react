@@ -6,6 +6,8 @@ import Blog from './company/blog'
 import {NameForm,Textarea,Select,Form} from './company/form1'
 
 import 'bootstrap/dist/css/bootstrap.css';
+import ItemList from './company/page2-array';
+import Blog from './company/blog'
 let propsData = {
     firstName:'levin',
     lastName:'jiang'
@@ -13,7 +15,7 @@ let propsData = {
 const posts = [
     {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
     {id: 2, title: 'Installation', content: 'You can install React from npm.'}
-  ];
+];
 class Toggle extends React.Component{
     constructor(props){
         super(props);
@@ -43,6 +45,8 @@ class Toggle extends React.Component{
                 <Textarea />
                 <Select />
                 <Form />
+                <ul>{ItemList}</ul>
+                <Blog posts={posts}/>
             </div>
             
         )
