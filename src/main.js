@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
 import Page1 from './company/page1'
 import {Lists,Ullist} from './company/page2-array'
-import Blog from './company/blog'
+import Blog from './company/blog.js'
 import {NameForm,Textarea,Select,Form} from './company/form1'
 
-import 'bootstrap/dist/css/bootstrap.css';
-import ItemList from './company/page2-array';
-import Blog from './company/blog'
 let propsData = {
     firstName:'levin',
     lastName:'jiang'
@@ -45,7 +43,7 @@ class Toggle extends React.Component{
                 <Textarea />
                 <Select />
                 <Form />
-                <ul>{ItemList}</ul>
+                <ul>{Lists}</ul>
                 <Blog posts={posts}/>
             </div>
             

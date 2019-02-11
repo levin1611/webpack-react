@@ -5,7 +5,7 @@ class NameForm extends React.Component{
         this.state = {
             Name:'',
             Introduce:'',
-            Select:''
+            Select:props.option[0].name
         };
         console.log(props)
         this.handleNameChange = this.handleNameChange.bind(this);
@@ -46,7 +46,7 @@ class NameForm extends React.Component{
                 </label>
                 <label>
                     Select:
-                    <select>
+                    <select value={this.state.Select} onChange={this.handleSelectChange}>
                        {options.map((opt) => 
                             <OptionItem items={opt} key={opt.id.toString()}/>
                         )}
