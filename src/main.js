@@ -1,11 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Page1 from './company/page1'
-import ItemList from './company/page2-array'
+import {Lists,Ullist} from './company/page2-array'
+import Blog from './company/blog'
+import {NameForm,Textarea,Select,Form} from './company/form1'
+
+import 'bootstrap/dist/css/bootstrap.css';
 let propsData = {
     firstName:'levin',
     lastName:'jiang'
 }
+const posts = [
+    {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
+    {id: 2, title: 'Installation', content: 'You can install React from npm.'}
+  ];
 class Toggle extends React.Component{
     constructor(props){
         super(props);
@@ -28,7 +36,13 @@ class Toggle extends React.Component{
                     {this.state.isToggle ? 'ON' : 'OFF'}
                 </button>
                 <Page1 />
-                <ul>{ItemList}</ul>
+                <ul>{Lists}</ul>
+                {Ullist}
+                <Blog posts={posts}/>
+                <NameForm />
+                <Textarea />
+                <Select />
+                <Form />
             </div>
             
         )
