@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './header';
 import Clock from './Clock';
-import ItemList from '../../src/company/page2-array.js';
+import {Lists,Ullist} from '../../src/company/page2-array';
 import NameForm from './form';
+import FormRef from './formRef';
+import Calculator from './promote'
 function formatName(user){
     return user.firstName + '-' + user.lastName;
 }
@@ -112,7 +114,7 @@ class Index extends React.Component{
                     {userUrl}
                     <div className="row">
                         <div className="col-md-3">
-                            <ul>{ItemList}</ul>
+                            <ul>{Lists}</ul>
                         </div>
                         <div className="col-md-3">
                             <Welcome name="姜玉庄"></Welcome>
@@ -124,7 +126,14 @@ class Index extends React.Component{
                             <NameForm option={optionItem}/>
                         </div>
                     </div>
-                   
+                    <div className="row">
+                        <div className='col-md-12'>
+                            <FormRef />
+                        </div>
+                        <div className="col-md-12">
+                            <Calculator />
+                        </div>
+                    </div>
                 </div>
                 
             </div>

@@ -5,7 +5,7 @@ class NameForm extends React.Component{
         this.state = {
             Name:'',
             Introduce:'',
-            Select:null
+            Select:props.option[0].name
         };
         console.log(props)
         this.handleNameChange = this.handleNameChange.bind(this);
